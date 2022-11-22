@@ -1,6 +1,8 @@
 package com.example.gym_app
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.LoginFilter
@@ -56,7 +58,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Login(getUri())
+                    Login(getUri(),this)
                 }
             }
         }
@@ -83,13 +85,13 @@ private fun Context.buildplayerview(exoPlayer: ExoPlayer)=
         resizeMode=RESIZE_MODE_ZOOM
     }
 @Composable
-fun Login(uri:Uri) {
+fun Login(uri:Uri,context:Activity) {
     val context = LocalContext.current
     var Username by remember {
-        mutableStateOf("Username")
+        mutableStateOf("")
     }
     var Password by remember {
-        mutableStateOf("Password")
+        mutableStateOf("")
     }
     val exoPlayer = remember { context.buildExoPlayer(uri) }
 
@@ -132,7 +134,7 @@ fun Login(uri:Uri) {
             Text(text = "Welcome to BodyWizard", fontWeight = FontWeight.Bold, style = TextStyle(fontFamily = FontFamily.Serif), fontSize = 30.sp, color = Color.White)
             Text(text = "Sign in to continue", fontWeight = FontWeight.SemiBold,color= Color.White)
             Image(painter = painterResource(id = R.drawable.logo2), contentDescription ="Logo" ,modifier=Modifier.size(120.dp))
-            TextField(
+            OutlinedTextField(
                 value = Username,
                 onValueChange = { newValue -> Username = newValue },
                 modifier=Modifier.fillMaxWidth(0.85f),
@@ -143,12 +145,13 @@ fun Login(uri:Uri) {
                         contentDescription = "Username"
                     )
                 },
+                placeholder= {Text(text = "Username")},
                 colors = TextFieldDefaults.textFieldColors(
                     backgroundColor = Color.White,
                 )
             )
 
-            TextField(
+            OutlinedTextField(
                 value = Password,
                 onValueChange = { Password = it },
                 modifier=Modifier.fillMaxWidth(0.85f),
@@ -159,6 +162,7 @@ fun Login(uri:Uri) {
                         contentDescription = "Password"
                     )
                 },
+                placeholder= {Text(text = "Username")},
                 visualTransformation = PasswordVisualTransformation(),
                 colors = TextFieldDefaults.textFieldColors(
                     backgroundColor = Color.White,
@@ -172,6 +176,15 @@ fun Login(uri:Uri) {
             ) {
                 Text(text = "SIGN IN", modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
             }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(text = "Don't have an account", color = Color.White)
+                TextButton(onClick = { val intent = Intent(context,signup_activity::class.java)
+                    context.startActivity(intent)
+                }) {
+                    Text(text = "Sign Up")
+                }
+            }
+
 
             Divider(
                 color=Color.White.copy(alpha = 0.3f),
@@ -182,13 +195,6 @@ fun Login(uri:Uri) {
             Column( horizontalAlignment = Alignment.CenterHorizontally) {
 
 
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(text = "Don't have an account", color = Color.White)
-                TextButton(onClick = { /*TODO*/ }) {
-                    Text(text = "Sign Up")
-                }
-                Text(text = "or")
-            }
 
             //Text(text = "Or",color = Color.White)
 

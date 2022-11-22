@@ -23,6 +23,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,7 +55,7 @@ fun Signup() {
     Box(modifier = Modifier
         .fillMaxSize()
         .padding(top = 120.dp, bottom = 88.dp, start = 8.dp, end = 10.dp)
-        .alpha(0.2f)
+        .alpha(0.0f)
         .clip(shape = RoundedCornerShape(8.dp))
         .background(color = Color.LightGray) ){
 
@@ -78,8 +80,7 @@ fun Signup() {
            }
            OutlinedTextField(
                value = name,
-               onValueChange = { newValue ->
-                   { name = newValue }
+               onValueChange = { newValue -> name = newValue
                },
                leadingIcon = {
                    Icon(
@@ -89,11 +90,13 @@ fun Signup() {
                    )
                },
                label = { Text(text = "Name", color = Color.White)},
+               placeholder = { Text(text = "Name", color = Color.White)},
+               colors=TextFieldDefaults.textFieldColors(textColor = Color.White)
            )
            OutlinedTextField(
                value = mail,
                onValueChange = { newValue ->
-                   { mail = newValue }
+                    mail = newValue
                },
                leadingIcon = {
                    Icon(
@@ -103,13 +106,15 @@ fun Signup() {
                    )
                },
                label = { Text(text = "Email",color = Color.White)},
+               placeholder = { Text(text = "Email", color = Color.White)},
+               colors=TextFieldDefaults.textFieldColors(textColor = Color.White)
 
 
            )
            OutlinedTextField(
                value = password,
                onValueChange = { newValue ->
-                   { password = newValue }
+                   password = newValue
                },
                leadingIcon = {
                    Icon(
@@ -119,12 +124,15 @@ fun Signup() {
                    )
                },
                label = { Text(text = "Password",color = Color.White)},
+               placeholder = { Text(text = "Password", color = Color.White)},
+               colors=TextFieldDefaults.textFieldColors(textColor = Color.White),
+               visualTransformation =PasswordVisualTransformation()
 
            )
-           TextField(
+           OutlinedTextField(
                value = confirm_password,
                onValueChange = { newValue ->
-                   { confirm_password = newValue }
+                   confirm_password = newValue
                },
                leadingIcon = {
                    Icon(
@@ -134,7 +142,10 @@ fun Signup() {
 
                    )
                },
-               label = { Text(text = "Retype Password",color = Color.White)}
+               label = { Text(text = "Retype Password",color = Color.White)},
+               placeholder = { Text(text = "Retype Password", color = Color.White)},
+               colors=TextFieldDefaults.textFieldColors(textColor = Color.White) ,
+               visualTransformation =PasswordVisualTransformation()
            )
            
        }
