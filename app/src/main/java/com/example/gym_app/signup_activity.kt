@@ -82,16 +82,20 @@ fun Signup() {
                value = name,
                onValueChange = { newValue -> name = newValue
                },
+
                leadingIcon = {
                    Icon(
                        imageVector = Icons.Default.Person,
                        contentDescription = "name",
-                       tint=Color.White
+
                    )
                },
-               label = { Text(text = "Name", color = Color.White)},
-               placeholder = { Text(text = "Name", color = Color.White)},
-               colors=TextFieldDefaults.textFieldColors(textColor = Color.White)
+               label = { Text(text = "Name")},
+               placeholder = { Text(text = "Name")},
+               colors = TextFieldDefaults.textFieldColors(
+                   backgroundColor = Color.White,
+               )
+               //colors=TextFieldDefaults.textFieldColors(textColor = Color.White)
            )
            OutlinedTextField(
                value = mail,
@@ -102,13 +106,14 @@ fun Signup() {
                    Icon(
                        imageVector = Icons.Default.Email,
                        contentDescription = "name",
-                       tint=Color.White
+                      // tint=Color.White
                    )
                },
-               label = { Text(text = "Email",color = Color.White)},
-               placeholder = { Text(text = "Email", color = Color.White)},
-               colors=TextFieldDefaults.textFieldColors(textColor = Color.White)
-
+               label = { Text(text = "Email")},
+               placeholder = { Text(text = "Email")},
+               colors = TextFieldDefaults.textFieldColors(
+                   backgroundColor = Color.White,
+               )
 
            )
            OutlinedTextField(
@@ -120,13 +125,15 @@ fun Signup() {
                    Icon(
                        imageVector = Icons.Default.Lock,
                        contentDescription = "name",
-                       tint=Color.White
                    )
                },
-               label = { Text(text = "Password",color = Color.White)},
-               placeholder = { Text(text = "Password", color = Color.White)},
-               colors=TextFieldDefaults.textFieldColors(textColor = Color.White),
-               visualTransformation =PasswordVisualTransformation()
+               label = { Text(text = "Password")},
+               placeholder = { Text(text = "Password")},
+               //colors=TextFieldDefaults.textFieldColors(textColor = Color.White),
+               visualTransformation =PasswordVisualTransformation(),
+               colors = TextFieldDefaults.textFieldColors(
+                   backgroundColor = Color.White,
+               )
 
            )
            OutlinedTextField(
@@ -137,15 +144,17 @@ fun Signup() {
                leadingIcon = {
                    Icon(
                        imageVector = Icons.Default.Lock,
-                       contentDescription = "name",
-                       tint=Color.White
+                       contentDescription = "name"
 
                    )
                },
-               label = { Text(text = "Retype Password",color = Color.White)},
-               placeholder = { Text(text = "Retype Password", color = Color.White)},
-               colors=TextFieldDefaults.textFieldColors(textColor = Color.White) ,
-               visualTransformation =PasswordVisualTransformation()
+               label = { Text(text = "Retype Password")},
+               placeholder = { Text(text = "Retype Password")},
+               //colors=TextFieldDefaults.textFieldColors(textColor = Color.White) ,
+               visualTransformation =PasswordVisualTransformation(),
+               colors = TextFieldDefaults.textFieldColors(
+                   backgroundColor = Color.White,
+               )
            )
            
        }
