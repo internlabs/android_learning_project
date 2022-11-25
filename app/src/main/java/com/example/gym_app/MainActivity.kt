@@ -201,13 +201,13 @@ fun Login(uri:Uri,context:Activity) {
             Row(verticalAlignment = Alignment.CenterVertically){
                 Text("Connect With", color = Color.White, fontSize = 16.sp)
                 IconButton(onClick = { /*TODO*/ }) {
-                    Image(painter = painterResource(id = R.drawable.google_logo), contentDescription ="Google logo",modifier=Modifier.size(28.dp) )
+                    Image(painter = painterResource(id = R.drawable.image__1_), contentDescription ="Google logo",modifier=Modifier.size(28.dp) )
                 }
                 IconButton(onClick = { /*TODO*/ }) {
-                    Image(painter = painterResource(id = R.drawable.icons8_facebook_circled_50), contentDescription ="FB LOGO",modifier=Modifier.size(28.dp) )
+                    Image(painter = painterResource(id = R.drawable.image__2_), contentDescription ="FB LOGO",modifier=Modifier.size(28.dp) )
                 }
                 IconButton(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Default.Email, contentDescription ="Email" )
+                    Icon(imageVector = Icons.Default.Email, contentDescription ="Email",tint=Color.White )
                 }}
             }
 
