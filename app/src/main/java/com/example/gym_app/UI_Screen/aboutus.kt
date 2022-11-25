@@ -34,7 +34,7 @@ fun aboutUs(){
             .alpha(0.3f)
             .padding(top = 172.dp, bottom = 35.dp, start = 8.dp, end = 12.dp)
             .clip(shape = RoundedCornerShape(8.dp))
-            .background(color = Color(65, 65, 65))) {
+            .background(color = Color(0, 0, 100))) {
         }
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(8.dp),modifier=Modifier.fillMaxSize()) {
 
