@@ -162,7 +162,7 @@ fun Login(uri:Uri,context:Activity) {
                         contentDescription = "Password"
                     )
                 },
-                placeholder= {Text(text = "Username")},
+                placeholder= {Text(text = "Password")},
                 visualTransformation = PasswordVisualTransformation(),
                 colors = TextFieldDefaults.textFieldColors(
                     backgroundColor = Color.White,
